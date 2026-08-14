@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cristian Antoni Loayza | Portafolio Pro</title>
-    <!-- Google Fonts: Space Grotesk para títulos y Outfit para texto -->
+    <title>Cristian Antonio Loayza | Portafolio Pro</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <!-- Devicon para logos de tecnologías -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <style>
         /* Variables del sistema de diseño PRO */
         :root {
@@ -32,39 +34,34 @@
             overflow-x: hidden;
         }
 
-        /* 1. Fondo de Partículas Animadas (Canvas) */
+        /* Fondo de Partículas */
         #bg-canvas {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -2;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -2; pointer-events: none; 
         }
-
-        /* Orbes de luz ambientales */
         .orb {
-            position: fixed; border-radius: 50%; filter: blur(120px); z-index: -1; opacity: 0.4;
-            animation: moveOrb 15s ease-in-out infinite alternate;
+            position: fixed; border-radius: 50%; filter: blur(100px); z-index: -1; opacity: 0.3;
+            animation: moveOrb 20s ease-in-out infinite alternate; will-change: transform;
         }
         .orb-1 { top: 0%; left: 10%; width: 40vw; height: 40vw; background: var(--accent-2); }
         .orb-2 { bottom: 0%; right: 10%; width: 40vw; height: 40vw; background: var(--accent-4); animation-delay: -5s; }
 
         @keyframes moveOrb {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 100px) scale(1.3); }
+            100% { transform: translate(30px, 50px) scale(1.1); }
         }
 
-        /* Navbar Efecto Cristal Moderno */
+        /* Navbar */
         nav {
             position: fixed; top: 0; width: 100%; padding: 20px 5%;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(5, 5, 5, 0.4); backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-bottom: 1px solid var(--glass-border); z-index: 1000;
+            background: rgba(5, 5, 5, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border); z-index: 1000; transition: all 0.3s ease;
         }
         .logo {
             font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700;
             background: linear-gradient(45deg, var(--accent-1), var(--accent-3));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            letter-spacing: -2px;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -2px;
         }
         nav ul { display: flex; gap: 35px; list-style: none; }
         nav ul li a { 
@@ -78,7 +75,7 @@
         nav ul li a:hover { color: var(--accent-1); text-shadow: 0 0 10px rgba(0,242,254,0.5); }
         nav ul li a:hover::after { width: 100%; }
 
-        /* Estilos Generales Secciones */
+        /* General Sections */
         section { 
             min-height: 100vh; padding: 120px 5% 80px; 
             display: flex; flex-direction: column; justify-content: center; align-items: center; 
@@ -92,81 +89,84 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        /* 2. Hero Section Mejorado (Con Imagen) */
+        /* Hero */
         #inicio { flex-direction: row; justify-content: space-between; gap: 50px; max-width: 1400px; margin: 0 auto;}
         .hero-text { flex: 1; z-index: 2;}
         .hero-text h1 { 
-            font-family: 'Space Grotesk', sans-serif; font-size: 5rem; 
+            font-family: 'Space Grotesk', sans-serif; font-size: 4.5rem; 
             line-height: 1.1; margin-bottom: 25px; letter-spacing: -2px;
         }
         .hero-text p { font-size: 1.3rem; color: var(--text-muted); margin-bottom: 40px; max-width: 550px; }
-        
         .hero-img { flex: 1; display: flex; justify-content: center; perspective: 1000px; }
         
-        /* Imagen de Perfil 3D */
         .profile-pic {
             width: 450px; height: 450px; object-fit: cover; border-radius: 30px;
-            box-shadow: 0 20px 50px rgba(0, 242, 254, 0.2);
-            border: 2px solid rgba(255,255,255,0.1);
-            transform: rotateY(-15deg) rotateX(5deg);
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 20px 50px rgba(0, 242, 254, 0.2); border: 2px solid rgba(255,255,255,0.1);
+            transform: rotateY(-10deg) rotateX(5deg); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
         }
         .profile-pic:hover { 
             transform: rotateY(0) rotateX(0) scale(1.05); 
-            box-shadow: 0 30px 70px rgba(240, 147, 251, 0.4); 
-            border-color: var(--accent-3);
+            box-shadow: 0 30px 70px rgba(240, 147, 251, 0.4); border-color: var(--accent-3);
         }
 
-        /* Botón Neón */
+        /* Botón */
         .btn {
             padding: 18px 45px; font-size: 1.2rem; font-weight: 800; border-radius: 50px;
             background: linear-gradient(45deg, var(--accent-1), var(--accent-2));
             color: #000; text-decoration: none; display: inline-block;
-            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.4); transition: 0.3s;
-            border: none; cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.4); transition: 0.3s; border: none; cursor: pointer;
         }
         .btn:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 20px 40px rgba(0, 242, 254, 0.7); }
 
-        /* 3. Tarjetas de Habilidades con Tilt 3D */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; max-width: 1100px; }
-        .skill-card {
-            width: 190px; height: 190px; background: var(--glass-bg); backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border); border-radius: 25px;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            font-size: 1.5rem; font-weight: 600; cursor: pointer;
-            transition: background 0.3s, border 0.3s;
+        /* Video Container */
+        .video-container {
+            position: relative; width: 100%; max-width: 900px; padding-bottom: 56.25%; /* Ratio 16:9 */
+            margin: 40px auto 0; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 242, 254, 0.2); border: 1px solid var(--glass-border);
         }
-        .skill-card:hover { 
-            background: rgba(255,255,255,0.08); border-color: var(--accent-3); 
+        .video-container iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
         }
 
-        /* 4. Carrusel Personalizado Interactivo */
+        /* Mis Roles */
+        .roles-container { display: flex; flex-direction: column; gap: 80px; width: 100%; max-width: 1200px; }
+        .role-row { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
+        .role-row.reverse { flex-direction: row-reverse; }
+        .role-text { flex: 1; }
+        .role-text h3 { font-size: 2.5rem; margin-bottom: 20px; font-family: 'Space Grotesk', sans-serif; color: var(--accent-1); }
+        .role-text p { font-size: 1.2rem; color: var(--text-muted); line-height: 1.6; }
+        .role-image { flex: 1; display: flex; justify-content: center; }
+        .role-image img { width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 15px 40px rgba(240, 147, 251, 0.2); border: 1px solid var(--glass-border); }
+
+        /* Herramientas */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; max-width: 1200px; }
+        .skill-card {
+            width: 160px; height: 160px; background: var(--glass-bg); backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border); border-radius: 25px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            font-size: 1.2rem; font-weight: 600; cursor: pointer; transition: all 0.3s;
+        }
+        .skill-card i { font-size: 3.5rem; margin-bottom: 15px; }
+        .skill-card:hover { 
+            background: rgba(255,255,255,0.08); border-color: var(--accent-3); 
+            transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,242,254, 0.2);
+        }
+
+        /* Carrusel */
         #proyectos { max-width: 100vw; overflow: hidden; }
-        .carousel-container {
-            width: 100%; max-width: 1200px; position: relative;
-            padding: 40px 0; margin: 0 auto;
-        }
-        .carousel-track {
-            display: flex; gap: 40px; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-            padding: 0 20px;
-        }
+        .carousel-container { width: 100%; max-width: 1200px; position: relative; padding: 40px 0; margin: 0 auto; }
+        .carousel-track { display: flex; gap: 40px; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); padding: 0 20px; }
         .carousel-slide {
             min-width: calc(60% - 20px); background: var(--glass-bg); backdrop-filter: blur(20px);
             border-radius: 30px; border: 1px solid var(--glass-border); overflow: hidden;
-            transform: scale(0.85); opacity: 0.5; transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: scale(0.85); opacity: 0.5; transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform, opacity;
         }
-        /* Slide activo destacando */
-        .carousel-slide.active { 
-            transform: scale(1); opacity: 1; border-color: var(--accent-1); 
-            box-shadow: 0 20px 60px rgba(0,242,254,0.25); 
-        }
-        
+        .carousel-slide.active { transform: scale(1); opacity: 1; border-color: var(--accent-1); box-shadow: 0 20px 60px rgba(0,242,254,0.25); }
         .carousel-img { width: 100%; height: 350px; object-fit: cover; border-bottom: 1px solid var(--glass-border); }
         .carousel-info { padding: 35px; }
         .carousel-info h3 { font-size: 2.2rem; margin-bottom: 15px; color: var(--text-main); font-family: 'Space Grotesk', sans-serif;}
         .carousel-info p { color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;}
-
-        /* Botones de navegación del carrusel */
         .carousel-btn {
             position: absolute; top: 50%; transform: translateY(-50%);
             background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white;
@@ -180,46 +180,77 @@
 
         /* Contacto */
         .contact-box {
-            background: var(--glass-bg); backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border); border-radius: 40px;
-            padding: 80px 60px; text-align: center; max-width: 800px; width: 100%;
-            position: relative; overflow: hidden;
+            background: var(--glass-bg); backdrop-filter: blur(25px); border: 1px solid var(--glass-border);
+            border-radius: 40px; padding: 80px 60px; text-align: center; max-width: 800px; width: 100%;
         }
-        .contact-box::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(240, 147, 251, 0.1) 0%, transparent 70%);
-            z-index: -1; animation: spin 20s linear infinite;
-        }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* Animaciones de Entrada (Scroll Reveal) */
-        .reveal { opacity: 0; transform: translateY(80px); transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1); }
+        /* Reveal */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform, opacity; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         footer { text-align: center; padding: 40px; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 1.1rem;}
 
+        /* --- MEDIA QUERIES (RESPONSIVE) --- */
         @media (max-width: 992px) {
             #inicio { flex-direction: column-reverse; text-align: center; }
-            .hero-text h1 { font-size: 3.5rem; }
             .hero-text p { margin: 0 auto 30px; }
-            .profile-pic { width: 300px; height: 300px; transform: none; }
-            .carousel-slide { min-width: 100%; }
+            .profile-pic { width: 350px; height: 350px; transform: none; }
+            .carousel-slide { min-width: 80%; }
+            .role-row, .role-row.reverse { flex-direction: column; text-align: center; gap: 30px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; flex-direction: column; gap: 15px; }
+            nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            nav ul li a { font-size: 0.9rem; }
+            
+            section { padding: 140px 5% 40px; }
+            h2 { font-size: 2.5rem; margin-bottom: 40px; }
+            
+            .hero-text h1 { font-size: 3rem; letter-spacing: -1px; }
+            .hero-text p { font-size: 1.1rem; }
+            .profile-pic { width: 280px; height: 280px; }
+
+            /* Modificaciones para Video a Ancho Completo en Móvil */
+            #video { padding-left: 0; padding-right: 0; }
+            #video h2, #video p { padding-left: 5%; padding-right: 5%; } 
+            .video-container { 
+                max-width: 100%; border-radius: 0; border-left: none; border-right: none; 
+                margin-top: 20px;
+            }
+
+            .skill-card { width: 120px; height: 120px; font-size: 1rem; padding: 10px; }
+            .skill-card i { font-size: 2.5rem; }
+            
+            .carousel-container { padding: 20px 0; }
+            .carousel-track { gap: 20px; padding: 0 10px; }
+            .carousel-slide { min-width: 100%; transform: scale(1); opacity: 1; }
+            .carousel-slide.active { box-shadow: 0 10px 30px rgba(0,242,254,0.2); }
+            .carousel-img { height: 250px; }
+            .carousel-info h3 { font-size: 1.6rem; }
+            .carousel-info p { font-size: 1rem; }
+            
+            .carousel-btn { width: 45px; height: 45px; font-size: 1.4rem; }
+            .prev-btn { left: 0px; }
+            .next-btn { right: 0px; }
+
+            .contact-box { padding: 40px 30px; border-radius: 25px; }
+            .contact-box h3 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Efectos de Fondo -->
     <canvas id="bg-canvas"></canvas>
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
 
-    <!-- Navegación -->
     <nav>
         <div class="logo">CAL.</div>
         <ul>
             <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#herramientas">Herramientas</a></li>
+            <li><a href="#video">Mi Video</a></li>
+            <li><a href="#sobre-mi">Roles</a></li>
+            <li><a href="#herramientas">Tech</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
@@ -228,40 +259,79 @@
     <!-- Hero -->
     <section id="inicio">
         <div class="hero-text reveal active">
-            <!-- Efecto Máquina de Escribir -->
             <h1>Hola, soy <br><span class="gradient-text type-text"></span><span class="cursor" style="color:var(--accent-1)">|</span></h1>
-            <p>Bienvenido a la versión ultra premium de mi página web. He integrada imágenes personalizadas, carruseles avanzados, efectos 3D y partículas dinámicas para demostrar el poder del diseño web moderno.</p>
+            <p>Soy un profesional híbrido. Programador apasionado por el código limpio y Diseñador enfocado en experiencias visuales inmersivas y responsivas.</p>
             <a href="#proyectos" class="btn">Explorar la Magia</a>
         </div>
         <div class="hero-img reveal active" style="transition-delay: 0.2s;">
-            <!-- Imagen Generada con IA -->
-            <img src="profile_pic.jpg" alt="Cristian Antoni Loayza" class="profile-pic" onerror="this.src='https://picsum.photos/400/400'">
+            <img src="profile_pic.jpg" alt="Cristian Antonio Loayza" class="profile-pic" onerror="this.src='https://picsum.photos/400/400'">
         </div>
     </section>
 
-    <!-- Sobre Mí -->
+    <!-- Video de YouTube (Movido ANTES de Especialidades y con Autoplay) -->
+    <section id="video">
+        <h2 class="reveal">Zona de <span class="gradient-text">Concentración</span></h2>
+        <div class="reveal" style="text-align: center; width: 100%;">
+            <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+                Este es el ambiente sonoro perfecto. Reproduce este video de fondo cuando necesites enfocarte al 100% en diseñar o programar.
+            </p>
+            <div class="video-container">
+                <!-- Se agregó ?autoplay=1&mute=1 para reproducción automática garantizada en navegadores web -->
+                <iframe src="https://www.youtube.com/embed/oJuGlqO85YI?autoplay=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mis Roles (Programador & Diseñador) -->
     <section id="sobre-mi">
-        <h2 class="reveal">Sobre <span class="gradient-text">Mí</span></h2>
-        <div style="max-width: 800px; text-align: center; font-size: 1.3rem; color: var(--text-muted); line-height: 1.8;" class="reveal">
-            <p>Me llamo <strong>Cristian Antoni Loayza</strong>. Este portafolio representa mi evolución en el código. De lo simple a lo dinámico. Me enfoco en crear experiencias visuales impactantes a través de CSS puro, animaciones interactivas y JavaScript, demostrando que la web es un lienzo ilimitado.</p>
+        <h2 class="reveal">Mis <span class="gradient-text">Especialidades</span></h2>
+        <div class="roles-container">
+            <!-- Programador -->
+            <div class="role-row reveal">
+                <div class="role-text">
+                    <h3>Programador Frontend & Backend</h3>
+                    <p>Escribo código estructurado, limpio y escalable. Disfruto resolviendo problemas complejos de lógica de software y creando aplicaciones robustas que funcionan sin problemas desde el servidor hasta el navegador del usuario final. Para mí, el código es poesía lógica.</p>
+                </div>
+                <div class="role-image">
+                    <img src="role_programmer.jpg" alt="Programador Trabajando" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop'">
+                </div>
+            </div>
+            <!-- Diseñador -->
+            <div class="role-row reverse reveal">
+                <div class="role-text">
+                    <h3>Diseñador UI/UX</h3>
+                    <p>No basta con que funcione; tiene que ser hermoso. Creo en experiencias intuitivas centradas en el usuario (User Experience) y en interfaces de usuario deslumbrantes (User Interface). Desde wireframes iniciales hasta prototipos de alta fidelidad con efectos modernos.</p>
+                </div>
+                <div class="role-image">
+                    <img src="role_designer.jpg" alt="Diseñador Creando" onerror="this.src='https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=600&auto=format&fit=crop'">
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Herramientas -->
     <section id="herramientas">
-        <h2 class="reveal">Mis <span class="gradient-text">Herramientas</span></h2>
+        <h2 class="reveal">Herramientas <span class="gradient-text">que Domino</span></h2>
         <div class="skills-container reveal">
-            <!-- Efecto Tilt 3D asignado a estas tarjetas mediante JS -->
-            <div class="skill-card tilt" data-tilt>HTML5 Pro</div>
-            <div class="skill-card tilt" data-tilt>CSS3 Animations</div>
-            <div class="skill-card tilt" data-tilt>Vanilla JS</div>
-            <div class="skill-card tilt" data-tilt>Git & GitHub</div>
-            <div class="skill-card tilt" data-tilt>UI/UX Design</div>
-            <div class="skill-card tilt" data-tilt>AI Tools</div>
+            <div class="skill-card"><i class="devicon-html5-plain colored"></i> HTML5</div>
+            <div class="skill-card"><i class="devicon-css3-plain colored"></i> CSS3</div>
+            <div class="skill-card"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+            <div class="skill-card"><i class="devicon-php-plain colored"></i> PHP 8.3</div>
+            <div class="skill-card"><i class="devicon-java-plain colored"></i> Java</div>
+            <div class="skill-card"><i class="devicon-nodejs-plain colored"></i> Node.js</div>
+            <div class="skill-card"><i class="devicon-angularjs-plain colored"></i> Angular</div>
+            <div class="skill-card"><i class="devicon-react-original colored"></i> React</div>
+            <div class="skill-card"><i class="devicon-microsoftsqlserver-plain colored"></i> SQL Server</div>
+            <div class="skill-card"><i class="devicon-linux-plain"></i> Linux</div>
+            <div class="skill-card"><i class="devicon-apple-original"></i> macOS</div>
+            <div class="skill-card"><i class="devicon-windows8-original colored"></i> Windows Srv</div>
+            <div class="skill-card"><i class="devicon-mysql-plain colored"></i> phpMyAdmin</div>
+            <div class="skill-card"><i class="devicon-laravel-original colored"></i> Laravel</div>
+            <div class="skill-card"><i class="devicon-spring-original colored"></i> Spring Boot</div>
         </div>
     </section>
 
-    <!-- Proyectos (Carousel Interactivo) -->
+    <!-- Proyectos -->
     <section id="proyectos">
         <h2 class="reveal">Mis <span class="gradient-text">Proyectos</span></h2>
         
@@ -270,25 +340,21 @@
             <button class="carousel-btn next-btn" onclick="moveCarousel(1)">&#10095;</button>
             
             <div class="carousel-track" id="track">
-                <!-- Slide 1 -->
                 <div class="carousel-slide active">
                     <img src="project_1.jpg" alt="Dashboard Analytics" class="carousel-img" onerror="this.src='https://picsum.photos/800/600?1'">
                     <div class="carousel-info">
                         <h3>Dashboard Synapse</h3>
-                        <p>Interfaz web moderna para análisis de datos. Construida con un diseño de Glassmorphism extremo, sombras suaves y colores neón.</p>
+                        <p>Interfaz web moderna para análisis de datos. Construida con un diseño de Glassmorphism extremo y 100% responsiva.</p>
                     </div>
                 </div>
-                <!-- Slide 2 -->
                 <div class="carousel-slide">
                     <img src="project_2.jpg" alt="Mobile App UI" class="carousel-img" onerror="this.src='https://picsum.photos/800/600?2'">
                     <div class="carousel-info">
                         <h3>NEXA Mobile App</h3>
-                        <p>Diseño futurista para una aplicación móvil enfocada en la productividad, con tipografía audaz y gradientes vibrantes.</p>
+                        <p>Diseño futurista para una aplicación móvil enfocada en la productividad, adaptada a cualquier tamaño de pantalla celular.</p>
                     </div>
                 </div>
-                <!-- Slide 3 -->
                 <div class="carousel-slide">
-                    <!-- Placeholder premium de Unsplash para el tercero -->
                     <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop" alt="Próximamente" class="carousel-img">
                     <div class="carousel-info">
                         <h3>Próximamente...</h3>
@@ -303,37 +369,35 @@
     <section id="contacto">
         <h2 class="reveal">Pongámonos en <span class="gradient-text">Contacto</span></h2>
         <div class="contact-box reveal">
-            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; margin-bottom: 20px;">¿Empezamos un proyecto?</h3>
-            <p style="color: var(--text-muted); margin-bottom: 40px; font-size: 1.3rem;">Busco siempre empujar los límites del diseño web. Si tienes una idea genial o simplemente quieres saludar, mi bandeja de entrada está abierta.</p>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 20px;">¿Empezamos un proyecto?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.2rem;">Busco siempre empujar los límites del diseño web responsivo. Si tienes una idea genial o simplemente quieres saludar, envíame un mensaje.</p>
             <a href="mailto:hola@ejemplo.com" class="btn">Envíame un Correo</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Cristian Antoni Loayza. Portafolio Premium desarrollado al máximo.</p>
+        <p>&copy; 2026 Cristian Antonio Loayza. Portafolio Premium Responsive.</p>
     </footer>
 
     <script>
-        // --- 1. Efecto Máquina de Escribir (Typewriter) ---
-        const text = "Cristian Antoni Loayza";
+        // 1. Efecto Máquina de Escribir (Typewriter)
+        const text = "Cristian Antonio Loayza";
         let index = 0;
         function typeWriter() {
             if (index < text.length) {
                 document.querySelector('.type-text').innerHTML += text.charAt(index);
                 index++;
-                setTimeout(typeWriter, 120);
+                setTimeout(typeWriter, 100);
             }
         }
         setTimeout(typeWriter, 500);
 
-        // Parpadeo del cursor
         setInterval(() => {
             const cursor = document.querySelector('.cursor');
-            cursor.style.opacity = cursor.style.opacity == '0' ? '1' : '0';
+            if(cursor) cursor.style.opacity = cursor.style.opacity == '0' ? '1' : '0';
         }, 400);
 
-
-        // --- 2. Animación Reveal al hacer Scroll ---
+        // 2. Animación Reveal al hacer Scroll
         window.addEventListener('scroll', reveal);
         function reveal() {
             const reveals = document.querySelectorAll('.reveal');
@@ -347,8 +411,7 @@
             }
         }
 
-
-        // --- 3. Lógica del Carrusel Personalizado ---
+        // 3. Lógica del Carrusel Personalizado (Responsive)
         const track = document.getElementById('track');
         const slides = Array.from(track.children);
         let currentIndex = 0;
@@ -359,84 +422,47 @@
                 if(idx === currentIndex) slide.classList.add('active');
             });
             
-            // Calculamos posiciones exactas para centrar la tarjeta activa
             if(window.innerWidth > 992) {
                 const slideWidth = slides[0].getBoundingClientRect().width;
                 const gap = 40; 
                 const containerWidth = track.parentElement.clientWidth;
                 const offset = -(currentIndex * (slideWidth + gap)) + (containerWidth / 2) - (slideWidth / 2);
                 track.style.transform = `translateX(${offset}px)`;
+            } else if (window.innerWidth > 768) {
+                const offset = -(currentIndex * (track.parentElement.clientWidth * 0.8 + 40)) + (track.parentElement.clientWidth * 0.1);
+                track.style.transform = `translateX(${offset}px)`;
             } else {
-                // En móviles ocupa 100%
-                const offset = -(currentIndex * track.parentElement.clientWidth);
+                const slideWidth = slides[0].getBoundingClientRect().width;
+                const gap = 20; 
+                const offset = -(currentIndex * (slideWidth + gap));
                 track.style.transform = `translateX(${offset}px)`;
             }
         }
 
         function moveCarousel(direction) {
             currentIndex += direction;
-            if(currentIndex < 0) currentIndex = slides.length - 1; // Loop infinito
+            if(currentIndex < 0) currentIndex = slides.length - 1; 
             if(currentIndex >= slides.length) currentIndex = 0;
             updateCarousel();
         }
         
         window.addEventListener('resize', updateCarousel);
-        setTimeout(updateCarousel, 100); // Inicializar posición
+        setTimeout(updateCarousel, 150); 
 
-
-        // --- 4. Efecto 3D Tilt en las Tarjetas de Herramientas ---
-        const tiltCards = document.querySelectorAll('.tilt');
-        tiltCards.forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left; 
-                const y = e.clientY - rect.top;  
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                // Rotación basada en la posición del ratón
-                const rotateX = ((y - centerY) / centerY) * -20; // 20deg máx
-                const rotateY = ((x - centerX) / centerX) * 20;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-                // Brillo interno dinámico
-                card.style.boxShadow = `0 15px 35px rgba(0,242,254, 0.2), inset ${-rotateY}px ${-rotateX}px 20px rgba(255,255,255,0.05)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-                card.style.boxShadow = 'none';
-            });
-        });
-
-
-        // --- 5. Sistema Avanzado de Partículas en Canvas ---
+        // 4. Sistema de Partículas Cero Lag
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-
         let particlesArray = [];
-        let mouse = { x: null, y: null, radius: 150 };
-
-        window.addEventListener('mousemove', function(event){
-            mouse.x = event.x;
-            mouse.y = event.y;
-        });
-        window.addEventListener('mouseout', function(){
-            mouse.x = undefined;
-            mouse.y = undefined;
-        });
 
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
                 this.size = Math.random() * 2 + 0.5;
-                this.baseX = this.x;
-                this.baseY = this.y;
-                this.density = (Math.random() * 30) + 1;
-                this.color = `rgba(0, 242, 254, ${Math.random() * 0.5})`;
+                this.speedY = Math.random() * 0.5 + 0.1;
+                this.color = `rgba(0, 242, 254, ${Math.random() * 0.4})`;
             }
             draw() {
                 ctx.fillStyle = this.color;
@@ -446,41 +472,17 @@
                 ctx.fill();
             }
             update() {
-                // Interacción sutil con el ratón
-                let dx = mouse.x - this.x;
-                let dy = mouse.y - this.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-                let forceDirectionX = dx / distance;
-                let forceDirectionY = dy / distance;
-                let maxDistance = mouse.radius;
-                let force = (maxDistance - distance) / maxDistance;
-                let directionX = forceDirectionX * force * this.density;
-                let directionY = forceDirectionY * force * this.density;
-
-                if (distance < mouse.radius) {
-                    this.x -= directionX;
-                    this.y -= directionY;
-                } else {
-                    if (this.x !== this.baseX) {
-                        let dx = this.x - this.baseX;
-                        this.x -= dx/10;
-                    }
-                    if (this.y !== this.baseY) {
-                        let dy = this.y - this.baseY;
-                        this.y -= dy/10;
-                    }
+                this.y -= this.speedY; 
+                if(this.y < -10) {
+                    this.y = canvas.height + 10;
+                    this.x = Math.random() * canvas.width;
                 }
-                
-                // Movimiento natural lento
-                this.baseY -= 0.5;
-                if(this.baseY < -10) this.baseY = canvas.height + 10;
             }
         }
 
         function initParticles() {
             particlesArray = [];
-            // Densidad adaptativa
-            let numberOfParticles = (canvas.width * canvas.height) / 7000;
+            let numberOfParticles = (canvas.width * canvas.height) / 25000;
             for (let i = 0; i < numberOfParticles; i++) {
                 particlesArray.push(new Particle());
             }
@@ -498,10 +500,14 @@
         initParticles();
         animateParticles();
 
+        let resizeTimeout;
         window.addEventListener('resize', function(){
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            initParticles();
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                initParticles();
+            }, 200);
         });
     </script>
 </body>
