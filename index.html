@@ -118,12 +118,25 @@
         .btn {
             padding: 16px 40px; font-size: 1.1rem; font-weight: 600; border-radius: 50px;
             background: var(--accent-1); color: #ffffff; text-decoration: none; display: inline-block;
-            box-shadow: 0 8px 20px rgba(90, 123, 158, 0.2); transition: 0.3s; border: none; cursor: pointer;
+            box-shadow: 0 8px 20px rgba(90, 123, 158, 0.2); transition: 0.3s; border: 2px solid transparent; cursor: pointer;
         }
         .btn:hover { 
             transform: translateY(-3px); 
             box-shadow: 0 12px 25px rgba(90, 123, 158, 0.3); 
             background: var(--accent-2);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--accent-1);
+            border: 2px solid var(--accent-1);
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: var(--accent-1);
+            color: #ffffff;
+            border-color: var(--accent-1);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(90, 123, 158, 0.25);
         }
 
         /* Video Container */
@@ -261,6 +274,7 @@
             <li><a href="#herramientas">Tech</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
             <li><a href="#contacto">Contacto</a></li>
+            <li><a href="amigo.html" style="color: var(--accent-1); font-weight: 600;">👥 Perfil de mi Amigo</a></li>
         </ul>
     </nav>
 
@@ -269,7 +283,10 @@
         <div class="hero-text reveal active">
             <h1>Hola, soy <br><span class="gradient-text type-text"></span><span class="cursor" style="color:var(--accent-1)">|</span></h1>
             <p>Soy un profesional híbrido. Programador apasionado por el código limpio y Diseñador enfocado en experiencias visuales inmersivas y responsivas.</p>
-            <a href="#proyectos" class="btn">Explorar Proyectos</a>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center;">
+                <a href="#proyectos" class="btn">Explorar Proyectos</a>
+                <a href="amigo.html" class="btn btn-outline">👥 Perfil de mi Amigo</a>
+            </div>
         </div>
         <div class="hero-img reveal active" style="transition-delay: 0.2s;">
             <img src="profile_pic_v2.jpg" alt="Cristian Antonio Loayza" class="profile-pic" onerror="this.src='https://picsum.photos/400/400'">
