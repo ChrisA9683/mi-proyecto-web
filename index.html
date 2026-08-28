@@ -174,81 +174,6 @@
         }
         .skill-card:hover i { transform: scale(1.1); }
 
-        /* --- NUEVA SECCIÓN: TRAYECTORIA --- */
-        .timeline-container {
-            width: 100%;
-            max-width: 800px;
-            position: relative;
-            margin: 0 auto;
-        }
-        .timeline-container::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background-color: var(--accent-2);
-            opacity: 0.3;
-            top: 0;
-            bottom: 0;
-            left: 20px;
-        }
-        .timeline-item {
-            padding: 10px 0 40px 60px;
-            position: relative;
-        }
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: auto;
-            left: 11px;
-            background-color: var(--accent-1);
-            border: 4px solid var(--bg-main);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-            box-shadow: 0 0 0 3px rgba(90, 123, 158, 0.2);
-            transition: all 0.3s;
-        }
-        .timeline-item:hover::after {
-            background-color: var(--accent-3);
-            transform: scale(1.2);
-        }
-        .timeline-content {
-            background-color: var(--bg-card);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-soft);
-            transition: 0.3s;
-        }
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--accent-2);
-        }
-        .timeline-date {
-            color: var(--accent-1);
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-            display: inline-block;
-            background: rgba(90, 123, 158, 0.1);
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
-        .timeline-content h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            color: var(--text-main);
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-        .timeline-content p {
-            color: var(--text-muted);
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
         /* Carrusel Suave */
         #proyectos { max-width: 100vw; overflow: hidden; background-color: #ffffff; }
         .carousel-container { width: 100%; max-width: 1200px; position: relative; padding: 40px 0; margin: 0 auto; }
@@ -281,6 +206,97 @@
             box-shadow: var(--shadow-soft);
         }
 
+        /* Sección Servicios & Proceso */
+        #servicios { width: 100%; max-width: 1300px; margin: 0 auto; }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; width: 100%; margin-bottom: 60px;
+        }
+        .service-card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 24px; padding: 35px 30px; transition: all 0.4s ease;
+            box-shadow: var(--shadow-soft); display: flex; flex-direction: column;
+            position: relative; overflow: hidden;
+        }
+        .service-card::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-3));
+            opacity: 0; transition: 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(90, 123, 158, 0.3);
+        }
+        .service-card:hover::after {
+            opacity: 1;
+        }
+        .service-icon {
+            width: 60px; height: 60px; border-radius: 16px;
+            background: linear-gradient(135deg, rgba(90, 123, 158, 0.12), rgba(155, 136, 181, 0.15));
+            color: var(--accent-1); display: flex; justify-content: center; align-items: center;
+            font-size: 1.8rem; margin-bottom: 22px;
+        }
+        .service-card h3 {
+            font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem;
+            margin-bottom: 12px; color: var(--text-main);
+        }
+        .service-card p {
+            color: var(--text-muted); font-size: 1rem; line-height: 1.6; font-weight: 300;
+        }
+
+        /* Métricas de Impacto */
+        .metrics-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px; width: 100%; margin-bottom: 60px;
+        }
+        .metric-card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 20px; padding: 25px 20px; text-align: center;
+            box-shadow: var(--shadow-soft); transition: 0.3s;
+        }
+        .metric-card:hover {
+            transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--accent-2);
+        }
+        .metric-number {
+            font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 700;
+            color: var(--accent-1); margin-bottom: 6px;
+        }
+        .metric-label {
+            font-size: 0.95rem; color: var(--text-muted); font-weight: 500;
+        }
+
+        /* Flujo de Trabajo (Steps) */
+        .workflow-box {
+            width: 100%; background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 30px; padding: 45px 35px; box-shadow: var(--shadow-soft);
+        }
+        .workflow-title {
+            text-align: center; font-size: 1.8rem; margin-bottom: 35px;
+            font-family: 'Space Grotesk', sans-serif; color: var(--text-main);
+        }
+        .workflow-steps {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px; position: relative;
+        }
+        .step-item {
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+        }
+        .step-num {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: var(--accent-1); color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1.2rem; margin-bottom: 15px;
+            box-shadow: 0 6px 15px rgba(90, 123, 158, 0.25);
+        }
+        .step-item h4 {
+            font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem;
+            margin-bottom: 8px; color: var(--text-main);
+        }
+        .step-item p {
+            font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; font-weight: 300;
+        }
+
         /* Reveal */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform, opacity; }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -294,6 +310,8 @@
             .profile-pic { width: 350px; height: 350px; transform: none; border-width: 6px;}
             .carousel-slide { min-width: 80%; }
             .role-row, .role-row.reverse { flex-direction: column; text-align: center; gap: 30px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -319,10 +337,6 @@
             .skill-card { width: 110px; height: 110px; font-size: 0.95rem; padding: 10px; }
             .skill-card i { font-size: 2.2rem; }
             
-            .timeline-item { padding-left: 45px; }
-            .timeline-content { padding: 20px; }
-            .timeline-content h3 { font-size: 1.3rem; }
-
             .carousel-container { padding: 20px 0; }
             .carousel-track { gap: 20px; padding: 0 10px; }
             .carousel-slide { min-width: 100%; transform: scale(1); opacity: 1; }
@@ -333,6 +347,11 @@
             .carousel-btn { width: 40px; height: 40px; font-size: 1.2rem; }
             .prev-btn { left: 5px; }
             .next-btn { right: 5px; }
+
+            .services-grid { grid-template-columns: 1fr; gap: 20px; }
+            .metrics-grid { grid-template-columns: 1fr; gap: 15px; }
+            .workflow-steps { grid-template-columns: 1fr; gap: 20px; }
+            .workflow-box { padding: 30px 20px; }
 
             .contact-box { padding: 40px 25px; border-radius: 20px; }
             .contact-box h3 { font-size: 1.6rem; }
@@ -351,8 +370,8 @@
             <li><a href="#video">Mi Video</a></li>
             <li><a href="#sobre-mi">Roles</a></li>
             <li><a href="#herramientas">Tech</a></li>
-            <li><a href="#trayectoria">Trayectoria</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#servicios">Servicios</a></li>
             <li><a href="#contacto">Contacto</a></li>
             <li><a href="amigo.html" style="color: var(--accent-1); font-weight: 600;">👥 Perfil de mi Amigo</a></li>
         </ul>
@@ -435,40 +454,8 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN: Trayectoria -->
-    <section id="trayectoria">
-        <h2 class="reveal">Mi <span class="gradient-text">Trayectoria</span></h2>
-        <div class="timeline-container reveal">
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-date">2024 - Presente</span>
-                    <h3>Desarrollador Full Stack Senior</h3>
-                    <p>Liderando el desarrollo de aplicaciones web escalables, implementando arquitecturas limpias y optimizando la experiencia del usuario final en proyectos de alto impacto.</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-date">2022 - 2024</span>
-                    <h3>Diseñador UI/UX & Frontend</h3>
-                    <p>Creación de interfaces intuitivas y sistemas de diseño robustos. Transformando ideas y wireframes en productos interactivos modernos usando React y Angular.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-date">2020 - 2022</span>
-                    <h3>Ingeniero de Software Junior</h3>
-                    <p>Desarrollo y mantenimiento de bases de datos relacionales, creación de APIs RESTful y soporte continuo en la implementación de soluciones tecnológicas empresariales.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
     <!-- Proyectos -->
-    <section id="proyectos" style="background-color: var(--bg-main);">
+    <section id="proyectos">
         <h2 class="reveal">Mis <span class="gradient-text">Proyectos</span></h2>
         
         <div class="carousel-container reveal">
@@ -501,13 +488,92 @@
         </div>
     </section>
 
+    <!-- Servicios y Metodología -->
+    <section id="servicios">
+        <h2 class="reveal">Servicios & <span class="gradient-text">Soluciones</span></h2>
+        
+        <!-- Métricas de Impacto -->
+        <div class="metrics-grid reveal">
+            <div class="metric-card">
+                <div class="metric-number" data-target="15">+15</div>
+                <div class="metric-label">Proyectos Desarrollados</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number" data-target="3">+3</div>
+                <div class="metric-label">Años de Experiencia</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number" data-target="100">100%</div>
+                <div class="metric-label">Diseño Responsivo</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number" data-target="24">24/7</div>
+                <div class="metric-label">Pasión por la Innovación</div>
+            </div>
+        </div>
+
+        <!-- Tarjetas de Servicios -->
+        <div class="services-grid reveal">
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Desarrollo Web Full Stack</h3>
+                <p>Construcción de aplicaciones web completas, modernas y escalables con código limpio, arquitectura desacoplada y bases de datos optimizadas.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Diseño UI / UX & Prototipado</h3>
+                <p>Creación de experiencias visuales atractivas, wireframes y prototipos interactivos en Figma con foco 100% en la facilidad de uso.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Mobile First & Responsive</h3>
+                <p>Adaptabilidad impecable para smartphones, tablets y pantallas de escritorio asegurando una navegación fluida en cualquier dispositivo.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Optimización & Rendimiento</h3>
+                <p>Mejora de tiempos de carga, estándares modernos de SEO técnico, seguridad y accesibilidad web para lograr la máxima calificación.</p>
+            </div>
+        </div>
+
+        <!-- Flujo de Trabajo -->
+        <div class="workflow-box reveal">
+            <h3 class="workflow-title">¿Cómo Trabajo? Mi Metodología</h3>
+            <div class="workflow-steps">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <h4>Planificación</h4>
+                    <p>Definición de requerimientos técnicos, metas del proyecto y arquitectura base.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <h4>Diseño UI/UX</h4>
+                    <p>Diseño de interfaces, elección de paleta de colores y prototipado visual.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <h4>Desarrollo</h4>
+                    <p>Implementación con código modular, semántico, documentado y probado.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">4</div>
+                    <h4>Despliegue</h4>
+                    <p>Auditoría de rendimiento, pruebas finales y publicación en producción.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contacto -->
     <section id="contacto">
         <h2 class="reveal">Pongámonos en <span class="gradient-text">Contacto</span></h2>
         <div class="contact-box reveal">
             <h3 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 20px; color: var(--text-main);">¿Empezamos un proyecto?</h3>
             <p style="color: var(--text-muted); margin-bottom: 35px; font-size: 1.15rem; font-weight: 300;">Busco siempre empujar los límites del diseño web responsivo. Si tienes una idea genial o simplemente quieres saludar, envíame un mensaje.</p>
-            <a href="mailto:hola@ejemplo.com" class="btn">Envíame un Correo</a>
+            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <a href="mailto:hola@ejemplo.com" class="btn">✉️ Envíame un Correo</a>
+                <a href="amigo.html" class="btn btn-outline">👥 Ver Perfil de mi Amigo</a>
+            </div>
         </div>
     </section>
 
@@ -598,6 +664,7 @@
                 this.y = Math.random() * canvas.height;
                 this.size = Math.random() * 2 + 0.5;
                 this.speedY = Math.random() * 0.4 + 0.1;
+                // Color adaptado al tema claro (azul pizarra muy suave)
                 this.color = `rgba(90, 123, 158, ${Math.random() * 0.25})`;
             }
             draw() {
@@ -645,6 +712,37 @@
                 initParticles();
             }, 200);
         });
+
+        // 5. Animación de Contadores en Métricas
+        let countersAnimated = false;
+        function animateCounters() {
+            const metricsSection = document.getElementById('servicios');
+            if (!metricsSection || countersAnimated) return;
+            const rect = metricsSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                countersAnimated = true;
+                const counters = document.querySelectorAll('.metric-number');
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const text = counter.innerText;
+                    const prefix = text.startsWith('+') ? '+' : '';
+                    const suffix = text.includes('%') ? '%' : (text.includes('/7') ? '/7' : '');
+                    let count = 0;
+                    const increment = Math.max(1, Math.ceil(target / 30));
+                    const timer = setInterval(() => {
+                        count += increment;
+                        if (count >= target) {
+                            counter.innerText = prefix + target + suffix;
+                            clearInterval(timer);
+                        } else {
+                            counter.innerText = prefix + count + suffix;
+                        }
+                    }, 40);
+                });
+            }
+        }
+        window.addEventListener('scroll', animateCounters);
+        setTimeout(animateCounters, 600);
     </script>
 </body>
 </html>
