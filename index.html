@@ -161,6 +161,81 @@
         }
         .skill-card:hover i { transform: scale(1.1); }
 
+        /* --- NUEVA SECCIÓN: TRAYECTORIA --- */
+        .timeline-container {
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            margin: 0 auto;
+        }
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--accent-2);
+            opacity: 0.3;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+        }
+        .timeline-item {
+            padding: 10px 0 40px 60px;
+            position: relative;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: auto;
+            left: 11px;
+            background-color: var(--accent-1);
+            border: 4px solid var(--bg-main);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 0 3px rgba(90, 123, 158, 0.2);
+            transition: all 0.3s;
+        }
+        .timeline-item:hover::after {
+            background-color: var(--accent-3);
+            transform: scale(1.2);
+        }
+        .timeline-content {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+            transition: 0.3s;
+        }
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-2);
+        }
+        .timeline-date {
+            color: var(--accent-1);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            display: inline-block;
+            background: rgba(90, 123, 158, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        .timeline-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .timeline-content p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
         /* Carrusel Suave */
         #proyectos { max-width: 100vw; overflow: hidden; background-color: #ffffff; }
         .carousel-container { width: 100%; max-width: 1200px; position: relative; padding: 40px 0; margin: 0 auto; }
@@ -231,6 +306,10 @@
             .skill-card { width: 110px; height: 110px; font-size: 0.95rem; padding: 10px; }
             .skill-card i { font-size: 2.2rem; }
             
+            .timeline-item { padding-left: 45px; }
+            .timeline-content { padding: 20px; }
+            .timeline-content h3 { font-size: 1.3rem; }
+
             .carousel-container { padding: 20px 0; }
             .carousel-track { gap: 20px; padding: 0 10px; }
             .carousel-slide { min-width: 100%; transform: scale(1); opacity: 1; }
@@ -259,6 +338,7 @@
             <li><a href="#video">Mi Video</a></li>
             <li><a href="#sobre-mi">Roles</a></li>
             <li><a href="#herramientas">Tech</a></li>
+            <li><a href="#trayectoria">Trayectoria</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
@@ -338,8 +418,40 @@
         </div>
     </section>
 
+    <!-- NUEVA SECCIÓN: Trayectoria -->
+    <section id="trayectoria">
+        <h2 class="reveal">Mi <span class="gradient-text">Trayectoria</span></h2>
+        <div class="timeline-container reveal">
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2024 - Presente</span>
+                    <h3>Desarrollador Full Stack Senior</h3>
+                    <p>Liderando el desarrollo de aplicaciones web escalables, implementando arquitecturas limpias y optimizando la experiencia del usuario final en proyectos de alto impacto.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2022 - 2024</span>
+                    <h3>Diseñador UI/UX & Frontend</h3>
+                    <p>Creación de interfaces intuitivas y sistemas de diseño robustos. Transformando ideas y wireframes en productos interactivos modernos usando React y Angular.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2020 - 2022</span>
+                    <h3>Ingeniero de Software Junior</h3>
+                    <p>Desarrollo y mantenimiento de bases de datos relacionales, creación de APIs RESTful y soporte continuo en la implementación de soluciones tecnológicas empresariales.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Proyectos -->
-    <section id="proyectos">
+    <section id="proyectos" style="background-color: var(--bg-main);">
         <h2 class="reveal">Mis <span class="gradient-text">Proyectos</span></h2>
         
         <div class="carousel-container reveal">
@@ -469,7 +581,6 @@
                 this.y = Math.random() * canvas.height;
                 this.size = Math.random() * 2 + 0.5;
                 this.speedY = Math.random() * 0.4 + 0.1;
-                // Color adaptado al tema claro (azul pizarra muy suave)
                 this.color = `rgba(90, 123, 158, ${Math.random() * 0.25})`;
             }
             draw() {
