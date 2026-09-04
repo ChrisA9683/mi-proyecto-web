@@ -237,6 +237,85 @@
             .contact-box { padding: 40px 30px; border-radius: 25px; }
             .contact-box h3 { font-size: 1.8rem; }
         }
+        .contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    margin-top:30px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    text-align:left;
+}
+
+.form-group label{
+    margin-bottom:8px;
+    font-weight:600;
+    color:var(--text-main);
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:18px 20px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.08);
+    background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(10px);
+    color:white;
+    font-size:1rem;
+    outline:none;
+    transition:all .3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+    color:var(--text-muted);
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color:var(--accent-1);
+    box-shadow:0 0 25px rgba(0,242,254,.25);
+    background:rgba(255,255,255,0.06);
+}
+
+.form-group textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+.contact-form .btn{
+    width:100%;
+    margin-top:10px;
+}
+
+.contact-form .btn:hover{
+    background:linear-gradient(
+        45deg,
+        var(--accent-1),
+        var(--accent-3)
+    );
+}
+
+.contact-header{
+    margin-bottom:15px;
+}
+
+.contact-header h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+.contact-header p{
+    color:var(--text-muted);
+    line-height:1.7;
+}
+
+        
     </style>
 </head>
 <body>
@@ -367,13 +446,68 @@
 
     <!-- Contacto -->
     <section id="contacto">
-        <h2 class="reveal">Pongámonos en <span class="gradient-text">Contacto</span></h2>
-        <div class="contact-box reveal">
-            <h3 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 20px;">¿Empezamos un proyecto?</h3>
-            <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.2rem;">Busco siempre empujar los límites del diseño web responsivo. Si tienes una idea genial o simplemente quieres saludar, envíame un mensaje.</p>
-            <a href="mailto:hola@ejemplo.com" class="btn">Envíame un Correo</a>
+    <h2 class="reveal">
+        Pongámonos en
+        <span class="gradient-text">Contacto</span>
+    </h2>
+
+    <div class="contact-box reveal">
+
+        <div class="contact-header">
+            <h3>¿Tienes un proyecto en mente?</h3>
+
+            <p>
+                Cuéntame tu idea, necesidad o propuesta.
+                Completa el formulario y me pondré en contacto contigo
+                para analizar la mejor solución.
+            </p>
         </div>
-    </section>
+
+        <form class="contact-form">
+
+            <div class="form-group">
+                <label>Nombre completo</label>
+                <input
+                    type="text"
+                    placeholder="Ingresa tu nombre"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Correo electrónico</label>
+                <input
+                    type="email"
+                    placeholder="correo@ejemplo.com"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Asunto</label>
+                <input
+                    type="text"
+                    placeholder="¿De qué trata tu proyecto?"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Mensaje</label>
+                <textarea
+                    placeholder="Describe tu proyecto o consulta..."
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="btn">
+                Enviar Mensaje
+            </button>
+
+        </form>
+
+    </div>
+</section>
 
     <footer>
         <p>&copy; 2026 Cristian Antonio Loayza. Portafolio Premium Responsive.</p>
